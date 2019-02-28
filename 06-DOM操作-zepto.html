@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>zepto操作DOM</title>
+    <style type="text/css">
+
+        #insert {
+            color: red;
+        }
+
+        .insert1 {
+            background-color: skyblue;
+        }
+
+        .insert2 {
+            height: 30px;
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script src="js/zepto.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(function(){
+        //正常写法
+        $('#box').append('<p id="insert">1130</p>');
+
+        //换一种写法呢？
+//        $('#box').append('<p>1130</p>',{
+//            class:'insert1';
+//        })
+
+        var $p = $('<p>1130</p>',{
+            class:'insert1 insert2',
+            id :'insert'
+        })
+        $('#box').append($p)
+    })
+    /*
+    * 对于zepto：
+    *           1，构建DOM标签的时候，支持传入一个配置对象。
+    *           2，且增加的配置对象会直接添加到标签体内，直接影响DOM节点的样式。
+    * */
+</script>
+</body>
+</html>

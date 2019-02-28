@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>隐藏元素宽和高_zepto</title>
+    <style type="text/css">
+        #box {
+            /*display: none;*/
+            /*visibility: hidden;*/
+            opacity: 0;
+            width: 200px;
+            height: 200px;
+            border: 1px solid skyblue;
+        }
+    </style>
+</head>
+<body>
+<div id="box">hello</div>
+<script src="js/zepto.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    /*
+    * zepto 无法通过width（）或height（）获取隐藏元素宽高
+    * 如果时visibility：hidden 或 opcity：0;依然可以
+    * */
+
+    $(function(){
+        console.log($('#box').width());     //202 --content+border
+        console.log($('#box').height());     //202 --content+border
+
+                        //display：none      //宽和高为0
+                        //visibility：hidden //202 --content+border
+                        // opacity: 0;       //202 --content+border
+    })
+</script>
+</body>
+</html>

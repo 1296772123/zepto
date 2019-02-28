@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>width和height的区别_jQuery</title>
+    <style type="text/css">
+        #box{
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+            margin: 10px;
+            padding: 10px;
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script src="js/jquery-1.10.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    /*
+    * 在jQuery中获取一个元素的宽高机制中有几种方法
+    *       1，用width（）和height（）---------------------->获取的是盒子的内容区域，不带单位，数值类型
+    *       2，用innerWidth（）和innerHeight---------------->获取的是盒子的内容区域 + padding，不带单位，数值类型
+    *       3，用outerWidth*（）和outerHeight--------------->获取的是盒子的内容区域 + padding + border ，不带单位，数值类型
+    *       4，用.css('width') and .css('height')----------->获取的是盒子的内容区域的大小， 带单位，字符串类型的
+    *
+    *       5，扩展：
+    *               通过.css('padding') and .css('border-width')也可以拿到值
+    * */
+
+    $(function(){
+        console.log('-------------------------');
+        var $box = $('#box');
+        console.log($box.width());                //200
+        console.log($box.height());               //200
+
+        console.log('-------------------------');
+
+        console.log($box.innerWidth());           //220
+        console.log($box.innerHeight());          //220
+
+        console.log('-------------------------');
+
+        console.log($box.outerWidth());            //226
+        console.log($box.outerHeight());           //226
+
+        console.log('-------------------------');
+
+        console.log($box.css('width'));           //200px
+        console.log($box.css('height'));          //200px
+
+        console.log('-------------------------');
+
+        console.log($box.css('padding'));          //1·0px
+        console.log($box.css('border'));           //3px solid rgb(0, 0, 0)
+        console.log($box.css('border-width'));     //3px
+        console.log($box.css('border-height'));     //undefined
+    })
+</script>
+</body>
+</html>

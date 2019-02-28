@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>zepto_selected</title>
+</head>
+<body>
+<select style="font-size: 25px;">
+    <option value="peiqi">小猪佩奇</option>
+    <option value="qiaozhi">兄弟乔治</option>
+    <option value="danni" selected="true">小狗丹尼</option>
+    <option value="suxi">小羊苏西</option>
+    <option value="kandi" selected="true">小猫坎迪</option>
+</select>
+<button id="btn" style="font-size: 25px;">按钮</button>
+<script src="js/jquery-1.10.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+/*
+*   总结:
+*       1，在zepto中如果使用attr获取布尔值属性，且布尔值属性围在标签内定义，获取到的是false；
+*       2，在zepto中prop的优先级是高于attr的，布尔值属性读取的时候，尽量用prop；
+*       3，坑！！！zepto中的removeProp只有在1.2版本中才有，1.0中还没有提出来。
+*       4，结论，在获取的时候最好用prop，但是如果需要移出的时候用removeAttr。
+*
+* */
+
+$(function(){
+    $('option').each(function(index,item){
+        console.log(this);//同jQuery一样获取到是每一个item （每一项，但是是普通的DOM对象）
+    })
+
+    $('#btn').click(function(){
+        $(this).prop('disabled','true');
+        setTimeout(function(){
+            $('#btn').removeAttr('disabled');
+        },2000)
+    })
+})
+
+</script>
+</body>
+</html>

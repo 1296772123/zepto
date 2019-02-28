@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>隐藏元素的宽高_jQuery</title>
+    <style type="text/css">
+        #box{
+            /*display: none;*/
+            /*opacity: 0;*/
+            /*visibility: hidden;*/
+            width: 200px;
+            height: 200px;
+            border:1px solid skyblue;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script src="js/jquery-1.10.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+/*
+* jQuery:可以通过width（）和height（）获取隐藏元素的宽和高，但是通过offset（）获取不到。
+*       备注：
+*           1，width（）和height（） 可以获取任意方式（css3）隐藏元素的宽和高
+*           2，如果元素通过display:none 隐藏，那么offset（）获取不到。
+* */
+
+$(function(){
+    console.log($('#box').width());     //200
+    console.log($('#box').height());    //200
+
+
+    console.log($('#box').offset());    //display为none时：{top: 0, left: 0}
+                                        //display为black时：{top: 8, left: 8}
+})
+</script>
+</body>
+</html>

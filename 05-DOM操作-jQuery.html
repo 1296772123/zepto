@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>jQuery中的DOM操作</title>
+    <style type="text/css">
+        .insert {
+            background: skyblue;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script src="js/jquery-1.10.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(function () {
+        //正常写法
+        $('#box').append('<p class="insert">1130你好！</p>');
+
+        //能否这样写呢？（增加一个配置对象）？（j'Query中不行，zepto中也不行）
+        $('#box').append('<p>1130</p>',{
+            class:'insert'
+        });
+
+        //换一种写法（NO）
+        var $p = $('<p>1130</p>', {
+            class:'insert'
+        })
+        $('#box').append($p);
+    })
+
+    /*
+    * 总结：在jQuery中，不支持在插入节点时，传入配置对象  （例如：class id）
+    * */
+</script>
+</body>
+</html>

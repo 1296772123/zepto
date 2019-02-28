@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>each方法_zepto</title>
+</head>
+<body>
+<script src="js/zepto.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+/*
+* 对于zepto的each来说：
+*       1，能遍历数组，以index（索引）
+*       2，能遍历对象，以key（键；关键的）---value（值）的形式。
+*       3，能遍历字符串（遍历json字符串），以类数组的形式key（键）---value(值）-----没啥用。
+* */
+    $(function(){
+
+        var arr = [1,2,3,4,5,6,7,8,9];
+        var obj = {name:'obj',age:0};
+        var str = 'hello 1130';
+        var json1 = JSON.stringify(obj);
+
+        //可以遍历数组
+        $.each(arr,function(index,item){
+            console.log(index,item) // (index索引）  （item每一项）
+        });
+
+        //可以遍历对象
+        $.each(obj,function(key,value){
+            console.log(key,value)// name obj
+                                  // age 0
+        });
+
+        //可以遍历字符串
+        $.each(str,function(a,b){
+            console.log(a,b); //0 "h"
+                              //1 "e"
+                              //2 "l"
+                              //3 "l"
+                              //4 "o"
+                              //5 " "
+                              //6 "1"
+                              //7 "1"
+                              //8 "3"
+                              //9 "0"
+        })
+    })
+</script>
+</body>
+</html>

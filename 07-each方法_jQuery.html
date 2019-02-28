@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>each_jQuery</title>
+</head>
+<body>
+<script src="js/jquery-1.10.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    /*
+    * 对于jQuery的each来说：
+    *       1，能遍历数组，以index（索引），--item（项）形式。
+    * */
+
+    $(function(){
+        var arr = [1,2,3,4,6];
+        var obj = {name:'佩奇',age:12};
+        var str = 'hello 1130';
+
+        //遍历数组
+        $.each(arr,function(index,item){
+//            console.log(index,item)//             顺序：（index索引）（item每一项）
+        });
+
+        //原生js的forEach回调函数中的两个形参，   顺序：（item每一项），（索引index）
+        arr.forEach(function(item,index){
+            console.log(item,index)
+        });
+
+        //遍历对象
+        $.each(obj,function(key,value){
+            console.log(key,value); //name 佩奇
+                                    //age 12
+        });
+
+        //不能遍历字符串 !!!报错
+        $.each(str,function (a,b) {
+            console.log(a,b)
+        });
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>zepto的offset()</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            font-size: 18px;
+            background: skyblue;
+            text-align: center;
+            line-height: 200px;
+            padding: 10px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+<script src="js/zepto.js" type="text/javascript" charset="utf-8"></script>
+<div id="box">大吉大利，今晚吃鸡</div>
+
+<script type="text/javascript">
+    /*
+    * zepto中的offset（）有哪些特点
+    *       1，返回的依然是一个对象，获取的是元素相对于当前视口的偏移量（同jQuery）
+    *       2，获取的对象中除了top.left.还增加了： width.height ,且没有单位。
+    *       3，获取到的width，和 height 是包含盒子的 ：padding和border
+    * */
+
+    $(function(){
+        console.log($('#box').offset())// Object
+                                       // height: 224
+                                       // left: 848
+                                       // top: 357
+                                       // width: 224
+                                       // __proto__: Object
+    })
+</script>
+</body>
+</html>
